@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "academic_years")
 @Data
+@lombok.ToString(exclude="terms")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
