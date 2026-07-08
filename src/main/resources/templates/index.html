@@ -111,8 +111,8 @@
                                   th:classappend="${student.gender == 'MALE'} ? 'badge bg-primary bg-opacity-10 text-primary' : 'badge bg-pink bg-opacity-10 text-danger'"
                                   th:text="${student.gender}">Male</span>
                         </td>
-                        <td th:text="${student.dateOfBirth != null ? #temporals.format(student.dateOfBirth, 'dd MMM yyyy') : 'â€”'}">â€”</td>
-                        <td th:text="${student.enrollmentDate != null ? #temporals.format(student.enrollmentDate, 'dd MMM yyyy') : 'â€”'}">â€”</td>
+                        <td th:text="${student.dateOfBirth != null ? #temporals.format(student.dateOfBirth, 'dd MMM yyyy') : '-'}">-</td>
+                        <td th:text="${student.enrollmentDate != null ? #temporals.format(student.enrollmentDate, 'dd MMM yyyy') : '-'}">-</td>
                         <td th:text="${student.currentClass != null ? student.currentClass.name : 'Unassigned'}"></td>
                     </tr>
                     <tr th:if="${#lists.isEmpty(students)}">
@@ -130,14 +130,14 @@
             <nav>
                 <ul class="pagination pagination-sm justify-content-end mb-0">
                     <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled'">
-                        <a class="page-link" th:href="@{/(page=${currentPage - 1})}">â€¹ Prev</a>
+                        <a class="page-link" th:href="@{/(page=${currentPage - 1})}">&laquo; Prev</a>
                     </li>
                     <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
                         th:classappend="${currentPage == i} ? 'active'">
                         <a class="page-link" th:href="@{/(page=${i})}" th:text="${i}">1</a>
                     </li>
                     <li class="page-item" th:classappend="${currentPage == totalPages} ? 'disabled'">
-                        <a class="page-link" th:href="@{/(page=${currentPage + 1})}">Next â€º</a>
+                        <a class="page-link" th:href="@{/(page=${currentPage + 1})}">Next &raquo;</a>
                     </li>
                 </ul>
             </nav>
